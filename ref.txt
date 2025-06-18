@@ -237,6 +237,8 @@ Ahora, las letras que pueden aparecer son "A" o "M" de "Added" o "Modified", res
 - Una vez commiteado, aparecerá el botón de "Publish Branch". NO ES LO MISMO QUE PUSH.
 La diferencia es que, un PUSH cuelga todo en una rama EXISTENTE (previamente creada).
 
+IMPORTANTE al momento de hacer un "Publisj Branch" (subir por primera vez):
+
 
 * Diferencias entre SAVE, commit y push:
 - SAVE: guardar el archivo localmente, como lo fue toda la vida.
