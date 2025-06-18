@@ -255,7 +255,7 @@ ACLARACIÓN: si es un caso en donde somos nosotros mismos quienes creamos ambas 
 
 * Crear un REPO desde cero, desde Local (con Git Bash o desde la terminal de VSC):
 - buscar la ruta del proyecto con "cd"
---- Desde Consola Git Bash externa: cd /c/xampp/htdocs/Proyectos/final_php_login_CRUD
+--- Desde Consola Git Bash externa --> cd /c/xampp/htdocs/Proyectos/final_php_login_CRUD
 --- Si estamos en VSC con la carpeta ya abierta, automáticamente vamos a estar en esa ubicación.
 - git init : para crear la carpeta ".git" que llevará el control de los historial es cambios en el disco local.
 - git add . : Para agregar a "Staged". El punto (".") sirve para indicar que tiene que agregar TODO lo de la carpeta.
@@ -274,17 +274,64 @@ git branch -M main
 git push -u origin main
 (Con esto, nos aseguramos que la rama principal se llame "main". "-u" crea una relación entre nuestra rama local y la del server).
 
+POSIBLES DUDAS HASTA AQUÍ:
+* ¿Qué pasa si trabajo con 2 o más repositorios en simultáneo con el mismo usuario?: NO PASA ABSOLUTAMENTE ANDA, es más, es lo más normal del mercado.
+* ¿Por qué cada vez que comiteo, se abre "una copia" del archivo? No es nada malo, es simplemente "una foto" o vista previa de cómo quedó el archivo dsp de aplicar todo. Con cerrarlo es suficiente.
+
+Sobre AUTENTICACIÓN:
+* 
+
+BUENAS PRÁCTICAS PARA EL TRABAJO EN EQUIPO:
+* Cada uno debe tener una copia del repo en su entorno local. Es decir, usar "clone".
+* Organizarse previamente y dividirse las tareas (Ejemplo: vos trabajá sobre el index.html y vos sobre el styles.css).
+* Cada uno debe usar una rama (branch). Por ejemplo: monti-dev y aldi-dev. Luego, al final, se hace un merge sobre la rama main.
+EJEMPLO PRÁCTICO:
+--- Ambos:
+- Clonamos el repo --> git clone https://github.com/usuario/proyecto-ejemplo.git
+- Nos posicionamos en la ruta del repo local --> cd proyecto-ejemplo
+--- Monti:
+- Crear una rama paralela y posicionamos sobre ella (en un solo paso) --> git checkout -b monti-html ("checkout" es para cambiar de Branch. "-b" es para crear una nueva paralela. "monti-html" es el nombre que le damos a esta nueva rama).
+- Hago los cambios en el index.html
+- Agrego los cambios a "Staged" --> git add index.html
+- Comiteo con un mensaje --> git commit -m "Cambios en mi HTML"
+- Subo los cambios al remoto --> git push origin monti-html
+--- Aldi:
+- Crear una rama paralela y posicionamos sobre ella (en un solo paso) --> git checkout -b aldi-css ("checkout" es para cambiar de Branch. "-b" es para crear una nueva paralela. "aldi-css" es el nombre que le damos a esta nueva rama).
+- Hago los cambios en el styles.css
+- Agrego los cambios a "Staged" --> git add styles.css
+- Comiteo con un mensaje --> git commit -m "Cambios en mi CSS"
+- Subo los cambios al remoto --> git push origin aldi-css
+--- CUALQUIERA DE LOS DOS (por ejemplo, Monti):
+Para el merge, no hace falta que lo que resta lo hagan TODOS los participantes, con que lo haga uno solo es suficiente (o mejor dicho, DEBE hacerlo sólo UNO).
+- Cambio a la rama main --> git checkout main
+- Trar todos los últimos cambios del main a tu repo local (por las dudas de que haya algún cambio ajeno) --> git push origin main
+- Hacer merge de TU propia rama --> git merge monti-html
+- Hacés merge de la rama de tu compa --> git merge aldi-css
+- Subir TODO a GitHub --> git push origin main
+--- PARA EL OTRO PARTICIPANTE (el que NO hizo el merge. En este caso, Aldi):
+Cuando el otro miembre quiere seguir laburando después del merge:
+- git checkout main (para posicionarse en la rama main)
+- git pull origin main (para "traer" todo el main actualizado, con el merge ya aplicado).
+OPCIONAL:
+Borrar ramas paralelas locales:
+- git branch -d monti-html
+- git branch -d aldi-css
+Borrar ramas paralelas remotas (una vez borradas las locales):
+- git push origin --delete monti-html
+- git push origin --delete aldi-css
 
 ------------------------------------------------------------
 
 Visual Studio Code [Windows]:
+#Atajos #Shortcuts
 
 * Con ALT + Z hacemos que todo el código y/o texto se ajuste al ancho de la ventana (sin scroll horizontal).
 * Con CTRL + S. Se graban los cambios.
-#Atajos #Shortcuts 
 * ALT + SHIFT + ABAJO, sirve para DUPLICAR líneas de código. Se posiciona el cursor al final y se hace esa merci.
 * Ctrl + D --> Sirve para editar varias etiquetas iguales. Por ejemplo: tenemos 5 div a los qu le queremos crear una misma clase; en lugar de escribir 5 veces "Class=clase1" en cada uno, sombreamos el primero y apretamos Ctrl + D hasta que se terminen de sombrear todos los elementos iguales. Una vez escrito lo desado, cancelamos con ESC.
 * Ctrl + Shift + Ñ --> Abrir la Terminal/Consola.
+* Para configurar a Git Bash como Consola por defecto: 
+- F1 (para abrir el buscador) --> Dejar el ">" del comienzo para filtrar por Configuración/opciones --> Escribir "Terminal..." (para que vaya filtrando por lo que refiere a la Terminal) y Seleccionarl "Terminal: Select Default Profile" --> Elegir Git Bash.
 
 ------------------------------------------------------------
 
