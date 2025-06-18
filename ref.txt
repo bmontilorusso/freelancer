@@ -237,8 +237,16 @@ Ahora, las letras que pueden aparecer son "A" o "M" de "Added" o "Modified", res
 - Una vez commiteado, aparecerá el botón de "Publish Branch". NO ES LO MISMO QUE PUSH.
 La diferencia es que, un PUSH cuelga todo en una rama EXISTENTE (previamente creada).
 
-IMPORTANTE al momento de hacer un "Publisj Branch" (subir por primera vez):
-
+IMPORTANTE al momento de hacer un "Publish Branch" (subir por primera vez):
+Es probable que al principio veamos errores como los siguientes:
+- "cant pussh refs to remote. Try running "pull" first to integrate your changes"
+- "Git: There is no tracking information for the curretn branch"
+- "error: failed to push some refs to"
+- Etc...
+Básicamente, puede ser que tengamos problemas cuando querramos hacer el primer PULL, PUSH o PUBLISH BRANCH. Esto puede pasar cuando creamos un proyecto desde cero en Visual Studio Code y, aparte en forma independiente, creamos un repositorio desde la página de GitHub. En ese escenario, cada repo funciona como "mundos dintitos", y cada uno tiene su propia nomenclatura de códigos para su historial de revisiones. Entonces, cuando queremos hacer PULL o PUSH, git no encuentra una relación entre ellos, no encuentra "NADA EN COMÚN". Lo que tenemos que hacer en ese caso es:
+Ejecultar por consola de GITBASH: git pull origin main --allow-unrelated-histories 
+Esto le dice "haceme un pull de la URL (rama main) permitiendo las historias NO-relacionadas.
+ACLARACIÓN: si es un caso en donde somos nosotros mismos quienes creamos ambas cosas, para trabajar juntos, y en donde sabemos fehacientemente que nada se va a pisar, entonces no vamos a tener ningún problema. Luego de ejecutar este comando vamos a poder hacer el "publish Branch" sin problemas. Ahora bien, si esta publicación se quiere hacer mergeando proyectos grandes y existen archivos de igual nombre, vamos a tener que resolver los conflictos manualmente.
 
 * Diferencias entre SAVE, commit y push:
 - SAVE: guardar el archivo localmente, como lo fue toda la vida.
