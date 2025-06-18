@@ -253,6 +253,19 @@ ACLARACIÓN: si es un caso en donde somos nosotros mismos quienes creamos ambas 
 - Commit: guardar el "historial de cambio" en forma local.
 - PUSH: colgar en GitHub ese "historial de cambio", es decir, ejecutar la sincronización entre local-online.
 
+* Crear un REPO desde cero, desde Local (con Git Bash o desde la terminal de VSC):
+- buscar la ruta del proyecto con "cd"
+--- Desde Consola Git Bash externa: cd /c/xampp/htdocs/Proyectos/final_php_login_CRUD
+--- Si estamos en VSC con la carpeta ya abierta, automáticamente vamos a estar en esa ubicación.
+- git init : para crear la carpeta ".git" que llevará el control de los historial es cambios en el disco local.
+- git add . : Para agregar a "Staged". El punto (".") sirve para indicar que tiene que agregar TODO lo de la carpeta.
+- git commit -m : sirve para commitear todo lo que esté en "Staged". La "-m" es para ponerle un mensaje al commit.
+- Creación del REPO en GitHub:
+Para empezar, conviene ir directo a la web y crearlo desde la página de gitHub. Como poder, podemos hacerlo por consola, pero necesitamos instalar GitHub CLI (Command Line Interface), desde https://cli.github.com/ (Por lo pronto, esta alternativa la vamos a dejar, conviene arrancar usando la intefaz Web).
+- Cuando creemos el repo en GitHub, procuremos NO AGREGAR un readme, ni .gitignore ni Licencias (si hacemos algo de esto, probablemente tengamos el error de compatiblidad de "historias", como mencionamos arriba).
+
+
+
 
 ------------------------------------------------------------
 
@@ -263,6 +276,7 @@ Visual Studio Code [Windows]:
 #Atajos #Shortcuts 
 * ALT + SHIFT + ABAJO, sirve para DUPLICAR líneas de código. Se posiciona el cursor al final y se hace esa merci.
 * Ctrl + D --> Sirve para editar varias etiquetas iguales. Por ejemplo: tenemos 5 div a los qu le queremos crear una misma clase; en lugar de escribir 5 veces "Class=clase1" en cada uno, sombreamos el primero y apretamos Ctrl + D hasta que se terminen de sombrear todos los elementos iguales. Una vez escrito lo desado, cancelamos con ESC.
+* Ctrl + Shift + Ñ --> Abrir la Terminal/Consola.
 
 ------------------------------------------------------------
 
