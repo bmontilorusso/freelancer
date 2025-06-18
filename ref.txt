@@ -234,10 +234,13 @@ Hasta aquí, todo va a parecer como ya está listo, pero en realidad hizo lo que
 Staged es el lugar reservado para aquellos archivos que fueron editados y que querés commitear. Observar que, en un principio los archivos están "agrupados" en "Changes". Lo que nosotros necesitemos es mover de "Changes" a "Staged". Con el "+" se agregan, con el "-" se quitan.
 Ahora, las letras que pueden aparecer son "A" o "M" de "Added" o "Modified", respectivamente.
 - Ahora si podemos commitear.
+- Una vez commiteado, aparecerá el botón de "Publish
 
 
 * Diferencias entre SAVE, commit y push:
-
+- SAVE: guardar el archivo localmente, como lo fue toda la vida.
+- Commit: guardar el "historial de cambio" en forma local.
+- PUSH: colgar en GitHub ese "historial de cambio", es decir, ejecutar la sincronización entre local-online.
 
 
 ------------------------------------------------------------
