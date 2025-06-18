@@ -1,0 +1,263 @@
+REFERENCIAS:
+
+------------------------------------------------------------
+
+HTML:
+
+"01.5. Freelancer [Alt]"
+
+*26 - Para comenzar un HTML, se puede usar "!" (Es exactamente lo mismo que usar "HTML5", sólo que más rápido. Básicamente, un mejor atajo.)
+
+*27 - Para comentar en HTML se usa <! -- Comment aquí -->
+
+*28 - El navegador entiende qué idioma es el nativo del sitio. Esto sirve para los buscadores y para la accesibilidad.
+
+*29 (A,B,C) - Los Headings, por ejemplo "h1" (van desde h1 hasta h6) hacen las veces de titulares y tienen jerarquías que hay que seguir a rajatabla.
+¿Por qué? --> Porque el SEO (Posicionamiento en Google) valora MUCHO ésto.
+IMPORTANTE:
+h1 --> es el TÍTULO, siempre. 
+h2 --> pueden ser los títulos de secciones. 
+Ejemplo que puede prestar a confusión: en este sitio. "Holly Molly Studios" sería h1, y "Diseño y Desarrollo Freelancer" sería h2. Si bien, lo segundo es lo que hace y ofrece el sitio (y lo que quizá entendamos como "lo más relevante e importante", el h1 es para LA MARCA, El DUEÑO, EL PRODUCTO en sí).
+
+*30 - LOREM IPSUM, para generar texto artificial para maquetaso prototipos --> https://www.lipsum.com/
+
+*31 - Para crear íconos (los cuales se ubican al lado del título del sitio, en la solapa del navegador) podemos usar la página https://favicon.io/
+NO es obligatorio que sean .ico , pueden ser png también (de hecho, es el estándar). Lo que sí, tienen que tener una resolución cuadrada (aspecto de 1:1). Por ejemplo: 32*32 (se puede usar hasta 512*512. por ejemplo para pantallas de retina).
+"rel = icon" le indica al navegador que el recurso que está usando es un ícono para poner al lado del título de la solapa. 
+"type" es para que el navegador sepa cómo interpretarlo. Por ejemplo:
+type="image/x-icon" --> Para cuando el ícono es un .ico
+type="image/png" --> Para cuando el ícono es un .png
+La diferencia --> .ico da más compatibilidad con navegadores viejos. png es más bien para navegadores más modernos (ofrece más calidad).
+
+*32 (A,B,C,D,E,F,G,H,I,J) - Todo lo que va en el "head" es lo que procesa el navegador. El orden sí ES RELEVANTE:
+1. El "meta", SIEMPRE. Primero el atributo "charset". Sirve para que el navegador qué codificación usar para procesar el código. Por ejemplo, UTF-8. ("Unicode Transformation Format - 8 bits") le dice al navegador: "Este archivo usa UTF-8, que es capaz de representar casi todos los caracteres del mundo correctamente."
+Si no pusiera esta linea, un "Hola! Cómo estás?" se vería así: "Â¡Hola, cÃ³mo estÃ¡s!"
+2. Luego, también "meta", pero con el atributo "vieport". Esencial para responsive design en móviles.
+3. "title". Para el título (lo que se ve en la solapa del navegador).
+4. <link rel="preconnect"> . Para conexiones anticipadas a servicios externos, como por ejemplo: Google Fonts. Siempre es conveniente que estén primeros para anticipar la carga.
+5. <link rel="preload"> . Recursos importantes que querés priorizar para la precarga. Como por ejemplo, la hoja de estilos.
+6. <link rel="stylesheet"> . La carga de las hojas de estilos. 
+Primero --> el normalize (siempre antes que la de styles).
+Luego --> La hoja de estilos principal.
+7. Otros elementos, como "script" (si los hubiera), o la invocación a los favicon.
+
+*33 - Normalize es una hoja de estilos que sirva para corregir inconsistencias entre distintos navegadores. Básicamente, "normaliza" (o estandariza) los estilos base.
+
+*34 - IMPORTANTE: la etiqueta de "as" debe tener el valor "style" (en singular). Aclaro ésto, porque el predictivo del Visual Studio code devuelve "styles" en lugar de "style" (lo cual, ESTÁ MAL). Esta es una corrección que hizo reiteradas veces ChatGPT.
+
+*35 - La etiquta "fieldset" se usa para agrupar campos de un formulario. NO ES OBLIGATORIO. ¿Cuándo se usa entonces? Cuando la cantidad de campos a completar es grande y es muy práctico agruparlos. También es útil como accesibilidad para aquellos usuarios que usan "lector" del sitio con audio. 
+Para cuando el formulario tiene poquitos campos, no es necesario usar un fieldset.
+
+*36 - El "Legend" hace las veces de "título" para los campos, dentro de un "fieldset".
+
+*37 - Los "label" son las "etiquetas" que acompañan a los campos que deben completarse.
+
+*38 - El "input" es el campo, como tal. El atributo "type" indica qué tipo de campo es. Y es MUY relevante ya que, dependiendeo el tipo, va a ir variando el cpmportamiento del mismo. Por ejemplo: si es un "email", en el teclado de un celular, va a aparecer el "@". Si es "number", cuando se despliegue el teclado, sólo va a aparecer el teclado numérico, mientras que en una PC, sólo va a aceptar números, literalmente.
+El atributo "placeholder" es el texto en gris que aparece dentro del input cuando NO tiene ningún valor ingresado.
+Para cuando se quiera transformar el input en botón de "enviar", se debe cambiar el atributo "type" a "submit".
+
+*39 - Los text areas no son "inputs", son lisa y llanamente <textarea>
+
+------------------------------------------------------------
+
+CSS:
+
+------------------------------------------------------------
+
+JavaScript:
+
+"05. Introducción a JS"
+
+*1 - La "compilación" de JS corre por cuenta del navegador. Cada Browser tiene su propio motor de JS que ejecuta el código.
+Decimos "compilación" (entre comillas), porque JS no se comila en el concepto tradicional de la palabra, sino, que se interpreta en tiempo real, tanto por el navegador como por Node.JS . Lenguajes que se compilan: Java, C, C++ . Lenguajes que NO se complian: JavaScript, Phyton, PHP. 
+Compilación (definición): cuando antes de ejecutarse, el el código fuente (el que escribe el programador) tiene que traducirse a binario para que, quien lo ejecute (una computadora, por ejemplo), lo pueda "entender".
+Conclusión: Aunque JavaScript no se compila como C o Java, se transforma y optimiza en muchos casos para que se ejecute más rápido y sea compatible con distintos entornos.
+#Compilación #Compilar
+
+*2 - Si bien, se puede invocar el archivo .js desde cualquier lado, se recomienda hacerlo justo al final, antes de cerrar la etiqueta <body>.
+Esto se debe a que, como HTML lee de arriba a abajo, si se encuentra con un scrpt en el camino, lo va a ejecutar primero antes de continuar con la lectura del HTML. Esto puede generar que la página tarde en cargar o incluso, en ocasiones, que el usuario vea la página en blanco por un leve momento.
+
+*3 (3A, 3B, 3C) - Comentarios en JavaScript:
+// --> Para comentar una única línea.
+/* */ --> Para comentar más de una línea.
+/** */ --> Para documentar funciones, clases o variables. (JSDoc)
+#Comentarios #Comment #Documentación #Documentar #JSDoc
+
+*4A - en JS se puede declarar una variable con var, aunque ya no se usa.
+
+*4B - En la actualidad, es mejor declarar las variables con let .
+
+*5 - Se puede declarar una variable sin valor.
+
+*6 - IMPORTANTE: JS es un lenguaje débilmente tipado y dinámico. No hace historia ni tira error en casos como éstos. En otros lenguajes como Java, C o C#, cuando se declara una variable hay que especificar el tipo, en JS no es necesario. Esto puede parecer una ventaja, pero puede desencadenar en malas prácticas. En resumen: JS permite cambiar tanto el valor como el tipo de variable, pero es, definitivamente, una MALA PRÁCTICA. 
+
+*7 - Forma de inicializar múltiples variables.
+#variables #JS #inicializacion
+
+*8 - IMPORTANTE: la declaración de variables en JS tiene reglas:
+- NO se puede crear una que empiece con números ni guiones, o caracteres extraños.
+- Puede tener cualquiera de las siguiente nomenclaturas (criterios):
+holaMundo = 'Hola', // Formato Camel case (Más utilizado).
+HolaMundo = 'Hola', // Formato Pascal case.
+hola_mundo = 'Hola' // Formato Snake case o Underscore.
+
+*9 - Para "imprimir" en la consola del navegador, el valor que tiene hasta ese momento la variable.
+
+*10 - const también es para declarar. Pero en este caso, es para CONSTANTES. Es decir, que son valores constantes, de los cuales tenemos la garantía que NO VAN A CAMBIAR a lo largo del proyecto. 
+IMPORTANTE: NO SE PUEDE inicializar una const vacía. Hay que, si o sí, declararle un valor al momento de la declaración.
+
+*11 (A, B y C) - Distintas formas de decarar una variable especificando que es un String. La más común es la A. La B y la C (si bien, válidas), ya no se usan prácticamente.
+
+*12 (A, B y C) - Es exactamente lo mismo, en JS, usar comillas simples o comillas dobles. Cuando se tienen que usar un string que contenga comillas adentro, se debería usar las comillas simples para englobar el Strgin en sí, y las dobles para lo que haya en el texto.
+Los criterios B y C ya no se usan. Sólo el A tiene vigencia.
+#Strings #Comillas #Simples #dobles
+
+*13 - Cuando queremos usar comillas dobles dentro de comillas dobles (por ejemplo para hacer referencia a pulgadas (20")), tenemos que usar una barra invertida.
+
+*14 - En JavaScript, un método es una función asociada a un objeto (una función que se define como PROPIEDAD de un objeto).
+sintaxis: objeto.metodo()
+Ejemplos:
+objeto.length --> muestra cantidad de caracteres. La primer posición es la CERO (0).
+objeto.indexOf() --> Muestra en qué posición comienza el texto que pide buscar en los paréntesis. Si no lo encuentra, arroja "-1". La primer posición es la CERO (0).
+objeto.inincludes() --> Esta arroja un booleano. Arroja true o false si encuentra lo solicitado entre paréntesis.
+#métodos #String #funciones
+
+*15 - Algo muy útil para cuando haya errores es usar la función "Inspeccionar" de los navegadores. Por ejemplo, cuando se usa console.log para "imprimir" string o números, estos valores se ven en colores distintos al momento de inspeccionar (colores varían según el browser). Por ejemplo, en brave (en Abril de 2025), los string se ven blancos y los números en violeta.
+#Inspeccionar #colores #string #números
+
+*16 - Se pueden obtener resultados forzando hacer la cuenta dentro del paréntesis del console log. 
+Ejemplo --> console.log(manzanas + peras + bananas);
+
+*17 - También se puede guarar previamente el resultado de la operación deseada dentro de una variable y luego, simplemente, imprimir el total.
+Ejemplo:
+let totalFrutas = manzanas + peras + bananas;
+console.log (totalFrutas);
+
+*18 - Para concatenar información, si bien es válido usar un más (+), lo idea es usar una coma. Porque si hay operaciones matemáticas de por medio, el símbolo matemático podría entrar en conflicto.
+
+*19 - El "++" incrementa en 1. El -- decrementa en 1. Para aumentar una cantidad específica se usa += X. Ejemplo puntajePrueba+= 10;
+Para decremento, es el mismo criterio.
+
+*20 - Los template String sirven para concatenar varios tipos de datos combinados, por ejemplo String + números (invocando variables). Se tienen que usar comillas invertidas, y cada vez que se invoque el valor de una variable, usar ${} . Por ejemplo: console.log(`Nombre: ${nombre}.`);
+#Concatenar #Concatenación #String #Template
+
+*21 - OBJETOS:
+Quizá la parte más importante de Javascript. Es una colección de pares "clave-valor" (tambié conocida como propiedades). Básicamente almacena datos complejos, que están vinculados entre sí. Ejemplo:
+
+let persona = {
+  nombre: "Ana",
+  edad: 30,
+  saludar: function() {
+    console.log("Hola, soy " + this.nombre);
+  }
+};
+
+Se eclaran como cualquier variable.
+Cada propiedad se separa por comas (,).
+La última propiedad NO lleva comas.
+Dentro puede tener tanto datos, como funciones (métodos).
+Cuando usamos "this", nos referimos a "el propio objeto".
+La asignación de valor para cada clave, se hace con dos puntos (:), y NO con un igual (tal y como se hace con las variables normales).
+#Objetos #Clave #Valor #Propiedades #Funciones #Métodos #this
+
+*22 - Se pueden obtener datos específicos de dentro de un objeto (es decir, el valor de una de sus propiedades). Ejemplo: "objeto.propiedad"
+
+*23 (A, B, C) - structuredClone() es una función Global de JavaScript (es decir, va sola, como alert() o console.log() ). En el *23A, sirve para "crear una foto" del objeto en ese momento específico, y poder "imprimirlo" tal cual está hasta ese momento del código. En el *23B guardamos esa "foto" en una variable, la cual después usamos para consultar e "imprimir" con un console.log (*23C).
+#structuredClone #foto #guardar #memoria #Objetos
+
+*24 - Destructuring: creación de variables nuevas a partir de priopiedades de objetos preexistentes.
+DOS formas:
+1. let nuevaVariablePais = automovil.origen;
+2. let {nuevaVariableDueño} --> Esto crea una nueva con exactamente el mismo nombre que la propiedad del objeto. La ventaja de ésto es que podemos extraer más de una cosa del mismo objeto en una misma línea. Por ejemplo: 
+let {precio, moneda} = automovil;
+#Destructuring #nueva #variable #objeto #propiedades
+
+*25 - Podemos usar "marcaAuto" las 2 veces. Ya que una la priemra NO es una variable, sino la propiedad de un objeto.
+
+
+------------------------------------------------------------
+
+Git & GitHub:
+
+* Git es un sistema de CONTROL DE VERSIONES. Sirve para registrar cambios que hacés en tu código a lo largo del tiempo. Podés volver atrás, comparar versiones o trabajar en equipo (en forma simultánea), sin pisarse unos  otros.
+
+* Git se instala. Enlace --> https://git-scm.com/downloads/win
+INSTALACIÓN:
+- Git instala GITBASH (la "consolita" de GIT).
+
+* Para asegurarse de que se instaló bien, usar comando:
+git --version
+
+* GitHub es una plataforma Online para alojar tus repositorios en la nube. Es como un Dropbox pero especializado en proyectos de código (programación). GitHub no es el único de su especie. Existen alternativas como GitLab o Bitbucket. Hacen lo mismo, son como "redes sociales" que controlan versionados de código.
+
+* Para crear un nuevo repositorio: 
+Ir al "+" (arriba a la derecha, creca del avatar de usuario) Nuevo repositorio.
+
+* Para BORRAR un repositorio:
+Entrar a uno e ir a "Settings", scrollear hasta el final y, en la sección "Danger Zone", elegir "Delete repository". Para confirmar esto, GitHub te pide que ingreses manualmente el nombre completo del repo (ruta completa + nombre).
+- IMPORTANTE AL BORRAR UN REPO:
+Borrar un repo NO implica que también se borren los archivos locales. Solamente borra lo colgado en el HUB y el vínculo con los documentos locales (de hecho, la carte .git de setting en la PC local va a seguir estando).
+
+* GitHub Pages:
+Sirve para publicar tu sitio directamente desde el repositorio.
+Consideraciones:
+- No funciona como un server "real", es más bien para: mostrar un portfolio, una versión previa a la final, compartir sitios simples como demo o ejemplos.
+- La URL siempre quedará del tipo https://tuusuario.github.io/nombre-del-repo/ , pero sin dejar de ser válida para compartir a externos.
+- NO MANEJA BACK!!! GitHub Pages (o más bien, gitHub en general), sólo levanta HTML, CSS y/o JavaScript (de los lenguajes que nos importan por ahora), no puede emular server apache, MySQL o ejecutar PHP.
+- Es importante recordar que para GITHUB PAGES FUNCIONES, el repositorio debe ser PÚBLICO (si se quiere usar GitHub Pages para un repo privado, hay que pagar una membresía especial).
+
+* Para cambiar visibilidad de un repositorio (público - privado):
+Entrar en el Repositorio e ir a "Settings". Luego, abajo de todo en la sección "Danger Zone", se encuentra la opción para cambiar "visibilidad".
+
+* Qué son los "Branch" (ramas):
+Podemos usar la analogía del Universo Cinematográfico de Marvel. Las ramas serían las lineas de tiempo. La "main" sería la "Linea sagrada" mientras que el resto son lineas variantes. Estas "lineas (o ramas) paralelas" sieven para probar cosas, al buen estilo de un "What if". Si los cambios no sirven, se descarta esta rama. Por el contrario, si prosperan y sirven, se aplica lo que se conoce como "merge", acoplándose a la rama "main".
+- Para seleccionar la "branch" hay que ir a Settings --> Pages 
+- Importante: si el repositorio no tienen NINGÚN archivo y/o commit, al momento de querer seleccionar una rama, no va a haber ninguna disponible.
+
+* INTEGRACIÓN DE UN REPOSITORIO CON TRABAJO EN VISUAL STUDIO CODE:
+Hay 2 opciones:
+1. Comenzar desde cero en VSC y "traer" un repositorio ya existente en GitHub (a esto se lo llama "CLONAR repositorio"). Esto sirve para "unirte" a un proyecto de 3ros o para retomar un proyecto viejo propio. Hay 2 sub-formas: una para Repositorio Público y otra para privado.
+1.A (Repo Público):
+- En GitHub, clic en Code (botón verde) y copiar la URL.
+- En VSC, botón lateral "Source Control", clic en "Clone Repository".
+- Elegir la carpeta local donde querés que se replique.
+1.B (Repo Privado):
+- Los mismas pasos que en 1.A, pero habiendo previamente aceptado la invitación del creador del repo para poder participar. Es importante estar logueado e GitHub, de no estarlo, al momento de Clonar el repo nos va a pedir autenticación.
+2. Cuando tenemos un proyecto avanzado en Visual Studio Code y queremos "colgarlo" en una repo de GitHub previamente creado. Esto también se llama "CLONAR".
+- Ir a "Source Control", clic en "Initialize Repository" (esto va a crear una carpeta ".git" en la carpeta del proyecto, que es la que tiene los settings de este "vínculo"). 
+Hasta aquí, todo va a parecer como ya está listo, pero en realidad hizo lo que refiere a git desde el lado local, el vínculo aún no está hecho. ¿Dónde se guardan los cambuos y probresos del versionado entonces?... dentro de la carpeta git greada.
+- Cuando pasamos el mouse por "Changes" se habilitan los "..." (tres puntitos). Clic --> Remote --> Add remote --> Pegar la URL del repo.
+- Una vez pegada la URL, nos va a pedir ponerle un nombre a ese "Remote". Poner "origin". (En sí, se puede poner cualquier nombre, pero "origin" es una estandarización) Esta declaración hace las veces de "alias" para la URL. Si bautizamos a la URL como "origin", más adelante podemos usar: git push origin main (en lugar de tener que pegar toda la URL).
+
+- La "U" en los archivos significa que son "nuevos sin commitear". La "U" es de "Untracked", significa que Git sabe de su existencia pero no los está "siguiendo", es decir: NO ESTÁN VERSIONADOS. Para que la "U" desapareza hay que hacer que GIt empiece a "trackearlos" (o sea, commitear).
+
+
+
+* Diferencias entre SAVE, commit y push:
+
+
+
+------------------------------------------------------------
+
+Visual Studio Code [Windows]:
+
+* Con ALT + Z hacemos que todo el código y/o texto se ajuste al ancho de la ventana (sin scroll horizontal).
+* Con CTRL + S. Se graban los cambios.
+#Atajos #Shortcuts 
+* ALT + SHIFT + ABAJO, sirve para DUPLICAR líneas de código. Se posiciona el cursor al final y se hace esa merci.
+* Ctrl + D --> Sirve para editar varias etiquetas iguales. Por ejemplo: tenemos 5 div a los qu le queremos crear una misma clase; en lugar de escribir 5 veces "Class=clase1" en cada uno, sombreamos el primero y apretamos Ctrl + D hasta que se terminen de sombrear todos los elementos iguales. Una vez escrito lo desado, cancelamos con ESC.
+
+------------------------------------------------------------
+
+Enlaces y Herramientas útiles:
+
+* https://www.lipsum.com/ --> LOREM IPSUM, para generar texto artificial para maquetaso prototipos.
+
+* https://favicon.io/ --> Para generar favicon (íconos para poner al lado del nombre del sitio, en la Solapa del navegador).
+
+* https://vscodethemes.com/ --> Temas / Themes para Visual Studio Code (muy bueno, porque cada tema tiene vista previa).
+
+
+------------------------------------------------------------
+
+Windows:
