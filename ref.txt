@@ -262,9 +262,17 @@ ACLARACIÓN: si es un caso en donde somos nosotros mismos quienes creamos ambas 
 - git commit -m "Ingrese mensaje de commit aquí" : sirve para commitear todo lo que esté en "Staged". La "-m" es para ponerle un mensaje al commit.
 - Creación del REPO en GitHub:
 Para empezar, conviene ir directo a la web y crearlo desde la página de gitHub. Como poder, podemos hacerlo por consola, pero necesitamos instalar GitHub CLI (Command Line Interface), desde https://cli.github.com/ (Por lo pronto, esta alternativa la vamos a dejar, conviene arrancar usando la intefaz Web).
-- Cuando creemos el repo en GitHub, procuremos NO AGREGAR un readme, ni .gitignore ni Licencias (si hacemos algo de esto, probablemente tengamos el error de compatiblidad de "historias", como mencionamos arriba).
-
-
+- Cuando creemos el repo en GitHub, procuremos NO AGREGAR un readme, ni .gitignore ni Licencias (si hacemos algo de esto, probablemente tengamos el error de compatiblidad de "historias", como mencionamos arriba). Una vez creado, copiar la URL, que sería algo así: "https://github.com/bmontilorusso/freelancer.git"
+- Ahora hay que "conectar" nuestro repo local con el recién creado. 2 formas:
+1. Desde la interfaz de Visual Studio Code:
+Cuando pasamos el mouse por "Changes" se habilitan los "..." (tres puntitos). Clic --> Remote --> Add remote --> Pegar la URL del repo.
+- Una vez pegada la URL, nos va a pedir ponerle un nombre a ese "Remote". Poner "origin". (En sí, se puede poner cualquier nombre, pero "origin" es una estandarización) Esta declaración hace las veces de "alias" para la URL. Si bautizamos a la URL como "origin", más adelante podemos usar: git push origin main (en lugar de tener que pegar toda la URL).
+2. Por consola:
+git remote add origin https://github.com/bmontilorusso/freelancer.git
+- Después usar las siguientes sentencias:
+git branch -M main
+git push -u origin main
+(Con esto, nos aseguramos que la rama principal se llame "main". "-u" crea una relación entre nuestra rama local y la del server).
 
 
 ------------------------------------------------------------
