@@ -234,7 +234,8 @@ Hasta aquí, todo va a parecer como ya está listo, pero en realidad hizo lo que
 Staged es el lugar reservado para aquellos archivos que fueron editados y que querés commitear. Observar que, en un principio los archivos están "agrupados" en "Changes". Lo que nosotros necesitemos es mover de "Changes" a "Staged". Con el "+" se agregan, con el "-" se quitan.
 Ahora, las letras que pueden aparecer son "A" o "M" de "Added" o "Modified", respectivamente.
 - Ahora si podemos commitear.
-- Una vez commiteado, aparecerá el botón de "Publish
+- Una vez commiteado, aparecerá el botón de "Publish Branch". NO ES LO MISMO QUE PUSH.
+La diferencia es que, un PUSH cuelga todo en una rama EXISTENTE (previamente creada).
 
 
 * Diferencias entre SAVE, commit y push:
