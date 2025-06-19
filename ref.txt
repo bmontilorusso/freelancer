@@ -221,6 +221,7 @@ Hay 2 opciones:
 - En GitHub, clic en Code (botón verde) y copiar la URL.
 - En VSC, botón lateral "Source Control", clic en "Clone Repository".
 - Elegir la carpeta local donde querés que se replique.
+COMENTARIO: cuando clonamos un repo, nos crea una carpeta con el nombre del repo (aclaro esto para no crearla antes nosotros, sino vamos a tener una carpeta dentro de otra ambas con el mismo nombre).
 1.B (Repo Privado):
 - Los mismas pasos que en 1.A, pero habiendo previamente aceptado la invitación del creador del repo para poder participar. Es importante estar logueado e GitHub, de no estarlo, al momento de Clonar el repo nos va a pedir autenticación.
 2. Cuando tenemos un proyecto avanzado en Visual Studio Code y queremos "colgarlo" en una repo de GitHub previamente creado. Esto también se llama "CLONAR".
