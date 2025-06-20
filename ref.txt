@@ -327,6 +327,17 @@ Cada tanto, Visual Studio Code nos va a preguntar algo como "Would you like Visu
 * Si se acepta la propuesta de VSC, lo hace automáticamente, frecuentemente, y te avisa. Luego, en todo caso, si vos aceptás, hace pull.
 * PULL ≠ FETCH: pull trae los cambios y los aplica. fetch sólo mira y te avisa.
 
+Colgar SQL y cosas relacionadas a la base de datos:
+GitHub no ejecuta SQL y no maneja base de datos. También es MALA práctica subir SQL para "replicar" bases.
+Lo que sí es BUENA PRÁCTICA es subir un .sql "inicial" que sirva para replicar el "molde" o la "estructura" de la Base de Datos (o modelo de datos del proyecto), también puede incluír algún INSERT con datos genéricos de prueba (es decir, ningún dato sensible o nominalizado real que se comprometa al estar en un repo público).
+Lo ideal es crear una carpeta "database" con, por un lado, un .sql (nombres estandarizados "estructura_base.sql" o "init_database.sql") junto a un readme.md con un sumario, consejos y/o advertencias.
+- Los archivos .md (a diferencia de los txt), son de texto plano a los que se les puede dar formato, y los cuales GitHub levante y muestra con estilo Web.
+
+------------------------------------------------------------
+
+SQL [Como lenguaje]:
+
+Ver archivo: "SQL [Como lenguaje].sql"
 
 ------------------------------------------------------------
 
