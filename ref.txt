@@ -321,6 +321,13 @@ Borrar ramas paralelas remotas (una vez borradas las locales):
 - git push origin --delete monti-html
 - git push origin --delete aldi-css
 
+FETCH VS PULL (IMPORTANTE):
+Cada tanto, Visual Studio Code nos va a preguntar algo como "Would you like Visual Studio Code to periodically run "git fetch"?" Vamos por partes:
+* Fetch es un comando para consultar si hay cambios en las otras ramas del repo online. NO HACE CAMBIOS, sólo consulta y te notifica, algo así como "asomar la cabeza por la ventana para ver". Sirve, por ejemplo, para estar al tanto con desarrollos de lineas paralelas (y no pisarse), conocer si estás atrasado también.
+* Si se acepta la propuesta de VSC, lo hace automáticamente, frecuentemente, y te avisa. Luego, en todo caso, si vos aceptás, hace pull.
+* PULL ≠ FETCH: pull trae los cambios y los aplica. fetch sólo mira y te avisa.
+
+
 ------------------------------------------------------------
 
 Visual Studio Code [Windows]:
